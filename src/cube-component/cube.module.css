@@ -1,0 +1,49 @@
+.cubeWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  /* overflow: hidden; */
+}
+
+.cubeWrapper .cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.cubeWrapper .cube .cubeFace {
+  position: absolute;
+}
+
+.cubeWrapper .cube .cubeFace img {
+  width: 100%;
+  height: 100%;
+}
+.cubeWrapper .cube .cubeFace .empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cubeWrapper .cube .cubeFace.front .empty {
+  background: hsla(0, 100%, 50%, 0.7);
+}
+.cubeWrapper .cube .cubeFace.right .empty {
+  background: hsla(60, 100%, 50%, 0.7);
+}
+.cubeWrapper .cube .cubeFace.back .empty {
+  background: hsla(120, 100%, 50%, 0.7);
+}
+.cubeWrapper .cube .cubeFace.left .empty {
+  background: hsla(180, 100%, 50%, 0.7);
+}
+.cubeWrapper .cube .cubeFace.top .empty {
+  background: hsla(240, 100%, 50%, 0.7);
+}
+.cubeWrapper .cube .cubeFace.bottom .empty {
+  background: hsla(300, 100%, 50%, 0.7);
+}
