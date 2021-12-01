@@ -5,13 +5,24 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { makeStyles } from "@mui/styles";
 
-export default function DialogComponent(props: {
+const useStyles = makeStyles({
+  imageContainer: {
+    width: "100%",
+    height: "100%",
+    "& img": {
+      width: "100%",
+    },
+  },
+});
+
+export default function SpecificationDialog(props: {
   open: boolean;
   handleClose: any;
 }) {
+  const classes = useStyles();
   const { open, handleClose } = props;
-
   return (
     <Dialog
       open={open}
@@ -20,20 +31,22 @@ export default function DialogComponent(props: {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
-        {"Use Google's location service?"}
+        {"UVC LED light specification"}
       </DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
+        <DialogContentText>
+          <div className={classes.imageContainer}>
+            <img src="bottom1.png" alt="" />
+            <img src="bottom2.png" alt="" />
+            <img src="bottom3.png" alt="" />
+            <img src="bottom4.png" alt="" />
+            <img src="bottom5.png" alt="" />
+          </div>
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} variant="outlined">
-          Disagree
-        </Button>
         <Button onClick={handleClose} variant="contained">
-          Agree
+          Close
         </Button>
       </DialogActions>
     </Dialog>

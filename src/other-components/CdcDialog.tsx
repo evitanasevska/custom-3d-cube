@@ -3,10 +3,20 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import Images from "./Images";
+import { makeStyles } from "@mui/styles";
 
-function GalleryDialog(props: { open: boolean; handleClose: any }) {
+const useStyles = makeStyles({
+  imageContainer: {
+    width: "100%",
+    height: "100%",
+    "& img": {
+      width: "100%",
+    },
+  },
+});
+
+function CdcDialog(props: { open: boolean; handleClose: any }) {
+  const classes = useStyles();
   const { open, handleClose } = props;
   return (
     <Dialog
@@ -14,10 +24,13 @@ function GalleryDialog(props: { open: boolean; handleClose: any }) {
       onClose={handleClose}
       aria-labelledby="responsive-dialog-title"
     >
-      <DialogTitle id="responsive-dialog-title">{"Gallery"}</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          <Images />
+          <div className={classes.imageContainer}>
+            <img src="left1.jpg" alt="" />
+            <img src="left2.jpg" alt="" />
+            <img src="left3.jpg" alt="" />
+          </div>
         </DialogContentText>
       </DialogContent>
       <DialogActions>
@@ -29,4 +42,4 @@ function GalleryDialog(props: { open: boolean; handleClose: any }) {
   );
 }
 
-export default GalleryDialog;
+export default CdcDialog;
