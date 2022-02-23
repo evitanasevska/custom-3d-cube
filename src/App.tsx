@@ -63,25 +63,6 @@ const useStyles = makeStyles({
     height: "100%",
     backgroundColor: "rgb(242, 232, 223, 0.2)",
     "&:hover": {
-      backgroundColor: "rgb(242, 232, 223, 0.3)",
-      cursor: "pointer",
-      boxShadow:
-        "rgba(212,234,237, 0.16) 0px 1px 4px, rgb(242, 232, 223) 0px 0px 0px 3px;",
-    },
-  },
-  imgOverlayNoCursorPointer: {
-    position: "absolute",
-    borderRadius: 10,
-    zIndex: 1,
-    display: "flex",
-    textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgb(242, 232, 223, 0.2)",
-    "&:hover": {
-      backgroundColor: "rgb(242, 232, 223, 0.3)",
       boxShadow:
         "rgba(212,234,237, 0.16) 0px 1px 4px, rgb(242, 232, 223) 0px 0px 0px 3px;",
     },
@@ -108,32 +89,26 @@ function App() {
         <div className={classes.boxCanvas}>
           <Cube size={350} index="front">
             <div className={classes.boxSide}>
-              <a
-                href="https://icjuk.com/design/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className={classes.imgContainer}>
-                  <img src="/front.png" alt="shop by design" />
-                  <div className={classes.imgOverlay}>
-                    <div>
-                      <Button
-                        variant="contained"
-                        startIcon={<ShoppingBagIcon />}
-                        target="_blank"
-                        href="https://icjuk.com/design/"
-                      >
-                        SHOP BY DESIGN
-                      </Button>
-                    </div>
+              <div className={classes.imgContainer}>
+                <img src="/front.png" alt="shop by design" />
+                <div className={classes.imgOverlay}>
+                  <div>
+                    <Button
+                      variant="contained"
+                      startIcon={<ShoppingBagIcon />}
+                      target="_blank"
+                      href="https://icjuk.com/design/"
+                    >
+                      SHOP BY DESIGN
+                    </Button>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
             <div className={classes.boxSide}>
               <div className={classes.imgContainer}>
                 <img src="/right.jpg" alt="worn by joe elliott" />
-                <div className={classes.imgOverlayNoCursorPointer}>
+                <div className={classes.imgOverlay}>
                   <div>
                     <Button
                       variant="outlined"
@@ -160,72 +135,54 @@ function App() {
               </div>
             </div>
             <div className={classes.boxSide}>
-              <a
-                href="https://icjuk.com/product-category/sale/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className={classes.imgContainer}>
-                  <img src="/back.png" alt="shop on sale" />
-                  <div className={classes.imgOverlay}>
-                    <div>
-                      <Button
-                        variant="contained"
-                        startIcon={<ShoppingBagIcon />}
-                        target="_blank"
-                        href="https://icjuk.com/product-category/sale/"
-                      >
-                        ON SALE
-                      </Button>
-                    </div>
+              <div className={classes.imgContainer}>
+                <img src="/back.png" alt="shop on sale" />
+                <div className={classes.imgOverlay}>
+                  <div>
+                    <Button
+                      variant="contained"
+                      startIcon={<ShoppingBagIcon />}
+                      target="_blank"
+                      href="https://icjuk.com/product-category/sale/"
+                    >
+                      ON SALE
+                    </Button>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
             <div className={classes.boxSide}>
-              <a
-                href="https://www.clairejaneart.com/collections"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className={classes.imgContainer}>
-                  <img src="/left.png" alt="shop bracelets" />
-                  <div className={classes.imgOverlay}>
-                    <div>
-                      <Button
-                        variant="contained"
-                        startIcon={<ShoppingBagIcon />}
-                        target="_blank"
-                        href="https://www.clairejaneart.com/collections"
-                      >
-                        SHOP BRACELETS
-                      </Button>
-                    </div>
+              <div className={classes.imgContainer}>
+                <img src="/left.png" alt="shop bracelets" />
+                <div className={classes.imgOverlay}>
+                  <div>
+                    <Button
+                      variant="contained"
+                      startIcon={<ShoppingBagIcon />}
+                      target="_blank"
+                      href="https://www.clairejaneart.com/collections"
+                    >
+                      SHOP BRACELETS
+                    </Button>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
             <div className={classes.boxSide}>
-              <a
-                href="https://icjuk.com/about-claire-jane/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className={classes.imgContainer}>
-                  <img src="/top.jpg" alt="shop bracelets" />
-                  <div className={classes.imgOverlay}>
-                    <div>
-                      <Button
-                        variant="contained"
-                        target="_blank"
-                        href="https://icjuk.com/about-claire-jane/"
-                      >
-                        ABOUT CLAIRE JANE
-                      </Button>
-                    </div>
+              <div className={classes.imgContainer}>
+                <img src="/top.jpg" alt="shop bracelets" />
+                <div className={classes.imgOverlay}>
+                  <div>
+                    <Button
+                      variant="contained"
+                      target="_blank"
+                      href="https://icjuk.com/about-claire-jane/"
+                    >
+                      ABOUT CLAIRE JANE
+                    </Button>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
             <div className={classes.boxSide}>
               <Fab
