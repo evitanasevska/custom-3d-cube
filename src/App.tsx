@@ -1,15 +1,14 @@
 import * as React from "react";
 import { makeStyles } from "@mui/styles";
-import { Button } from "@mui/material";
+import { Button, Fab } from "@mui/material";
 import Cube from "./cube-component/Cube";
-import SpecificationDialog from "./other-components/SpecificationDialog";
-import CdcDialog from "./other-components/CdcDialog";
-import VideoDialog from "./other-components/VideoDialog";
 import CollectionsIcon from "@mui/icons-material/Collections";
-import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
-import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import PinterestIcon from "@mui/icons-material/Pinterest";
 
-const color = "rgba(36,47,57, 0.55)";
+const color = "rgba(237, 31, 36, 0.55)";
 const useStyles = makeStyles({
   container: {
     width: "100%",
@@ -36,40 +35,23 @@ const useStyles = makeStyles({
     width: "100%",
     height: "100%",
     backgroundColor: color,
-    boxShadow: "rgba(36,47,57) 0px 0px 0px 3px",
+    boxShadow: "rgba(237, 31, 36) 0px 0px 0px 3px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-  boxImageContainer: {
-    width: 300,
-    borderRadius: 10,
-    "& img": {
-      objectFit: "contain",
-      borderRadius: 10,
-      "&:hover": {
-        boxShadow:
-          "rgba(212,234,237, 0.16) 0px 1px 4px, rgb(212,234,237) 0px 0px 0px 3px;",
-        cursor: "pointer",
-      },
-    },
-  },
-  notClickable: {
-    boxShadow: "none !important",
-    cursor: "default !important",
-  },
-  galleryContainer: {
+  imgContainer: {
     position: "relative",
     display: "flex",
-    width: 300,
-    height: 175,
+    width: 275,
+    height: 225,
     borderRadius: 10,
     "& img": {
       objectFit: "cover",
       borderRadius: 10,
     },
   },
-  galleryOverlay: {
+  imgOverlay: {
     position: "absolute",
     borderRadius: 10,
     zIndex: 1,
@@ -79,47 +61,46 @@ const useStyles = makeStyles({
     justifyContent: "center",
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(212,234,237, 0.3)",
+    backgroundColor: "rgb(242, 232, 223, 0.2)",
     "&:hover": {
-      backgroundColor: "rgba(212,234,237, 0.4)",
+      backgroundColor: "rgb(242, 232, 223, 0.3)",
       cursor: "pointer",
       boxShadow:
-        "rgba(212,234,237, 0.16) 0px 1px 4px, rgb(212,234,237) 0px 0px 0px 3px;",
+        "rgba(212,234,237, 0.16) 0px 1px 4px, rgb(242, 232, 223) 0px 0px 0px 3px;",
     },
+  },
+  imgOverlayNoCursorPointer: {
+    position: "absolute",
+    borderRadius: 10,
+    zIndex: 1,
+    display: "flex",
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgb(242, 232, 223, 0.2)",
+    "&:hover": {
+      backgroundColor: "rgb(242, 232, 223, 0.3)",
+      boxShadow:
+        "rgba(212,234,237, 0.16) 0px 1px 4px, rgb(242, 232, 223) 0px 0px 0px 3px;",
+    },
+  },
+  whiteJoeElliottButton: {
+    backgroundColor: "white !important",
+    width: 250,
+    marginBottom: "5px !important",
+  },
+  redJoeElliottButton: {
+    width: 250,
+  },
+  marginRight: {
+    marginRight: "5px !important",
   },
 });
 
 function App() {
   const classes = useStyles();
-  const [openSpecificationDialog, setOpenSpecificationDialog] =
-    React.useState(false);
-  const [openCdcDialog, setOpenCdcDialog] = React.useState(false);
-  const [openVideoDialog, setOpenVideoDialog] = React.useState(false);
-
-  const handleClickOpenSpecificationDialog = () => {
-    setOpenSpecificationDialog(true);
-  };
-
-  const handleCloseSpecificationDialog = () => {
-    setOpenSpecificationDialog(false);
-  };
-
-  const handleClickOpenVideoDialog = () => {
-    setOpenVideoDialog(true);
-  };
-
-  const handleCloseVideoDialog = () => {
-    setOpenVideoDialog(false);
-  };
-
-  const handleClickOpenCdcDialog = () => {
-    setOpenCdcDialog(true);
-  };
-
-  const handleCloseCdcDialog = () => {
-    setOpenCdcDialog(false);
-  };
-
   return (
     <div className={classes.container}>
       <img className={classes.backgoundImg} src="/background.png" alt="logo" />
@@ -127,104 +108,155 @@ function App() {
         <div className={classes.boxCanvas}>
           <Cube size={350} index="front">
             <div className={classes.boxSide}>
-              <div className={classes.boxImageContainer}>
-                <a
-                  href="https://www.uvclc.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src="/front.png" alt="logo" />
-                </a>
-              </div>
+              <a
+                href="https://icjuk.com/design/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className={classes.imgContainer}>
+                  <img src="/front.png" alt="shop by design" />
+                  <div className={classes.imgOverlay}>
+                    <div>
+                      <Button
+                        variant="contained"
+                        startIcon={<ShoppingBagIcon />}
+                        target="_blank"
+                        href="https://icjuk.com/design/"
+                      >
+                        SHOP BY DESIGN
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
             <div className={classes.boxSide}>
-              <div className={classes.boxImageContainer}>
-                <a
-                  href="https://www.uvclc.com/features"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src="/right.png" alt="logo" />
-                </a>
-              </div>
-            </div>
-            <div className={classes.boxSide}>
-              <div className={classes.boxImageContainer}>
-                <img
-                  className={classes.notClickable}
-                  src="/back.png"
-                  alt="logo"
-                />
-              </div>
-            </div>
-            <div className={classes.boxSide}>
-              <div className={classes.galleryContainer}>
-                <img src="/left1.jpg" alt="logo" />
-                <div
-                  className={classes.galleryOverlay}
-                  onClick={handleClickOpenCdcDialog}
-                >
+              <div className={classes.imgContainer}>
+                <img src="/right.jpg" alt="worn by joe elliott" />
+                <div className={classes.imgOverlayNoCursorPointer}>
                   <div>
                     <Button
-                      variant="contained"
-                      onClick={handleClickOpenCdcDialog}
+                      variant="outlined"
                       startIcon={<CollectionsIcon />}
+                      target="_blank"
+                      href="https://icjuk.com/design_categories/worn-by-joe-elliott/"
+                      size="small"
+                      className={classes.whiteJoeElliottButton}
                     >
-                      view cdc reports
+                      WORN BY JOE ELLIOTT
+                    </Button>
+                    <Button
+                      variant="contained"
+                      startIcon={<ShoppingBagIcon />}
+                      target="_blank"
+                      href="https://icjuk.com/joe-elliott-icjuk-designs/"
+                      size="small"
+                      className={classes.redJoeElliottButton}
+                    >
+                      SHOP JOE ELLIOTT DESIGNS
                     </Button>
                   </div>
                 </div>
               </div>
             </div>
             <div className={classes.boxSide}>
-              <div className={classes.galleryContainer}>
-                <img src="/top.png" alt="logo" />
-                <div
-                  className={classes.galleryOverlay}
-                  onClick={handleClickOpenVideoDialog}
-                >
-                  <div>
-                    <Button
-                      variant="contained"
-                      onClick={handleClickOpenVideoDialog}
-                      startIcon={<PlayCircleIcon />}
-                    >
-                      watch video
-                    </Button>
+              <a
+                href="https://icjuk.com/product-category/sale/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className={classes.imgContainer}>
+                  <img src="/back.png" alt="shop on sale" />
+                  <div className={classes.imgOverlay}>
+                    <div>
+                      <Button
+                        variant="contained"
+                        startIcon={<ShoppingBagIcon />}
+                        target="_blank"
+                        href="https://icjuk.com/product-category/sale/"
+                      >
+                        ON SALE
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
             <div className={classes.boxSide}>
-              <div className={classes.galleryContainer}>
-                <img src="/bottom.png" alt="logo" />
-                <div
-                  className={classes.galleryOverlay}
-                  onClick={handleClickOpenSpecificationDialog}
-                >
-                  <div>
-                    <Button
-                      variant="contained"
-                      onClick={handleClickOpenSpecificationDialog}
-                      startIcon={<CollectionsBookmarkIcon />}
-                    >
-                      uvc led light specification
-                    </Button>
+              <a
+                href="https://www.clairejaneart.com/collections"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className={classes.imgContainer}>
+                  <img src="/left.png" alt="shop bracelets" />
+                  <div className={classes.imgOverlay}>
+                    <div>
+                      <Button
+                        variant="contained"
+                        startIcon={<ShoppingBagIcon />}
+                        target="_blank"
+                        href="https://www.clairejaneart.com/collections"
+                      >
+                        SHOP BRACELETS
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
+            </div>
+            <div className={classes.boxSide}>
+              <a
+                href="https://icjuk.com/about-claire-jane/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className={classes.imgContainer}>
+                  <img src="/top.jpg" alt="shop bracelets" />
+                  <div className={classes.imgOverlay}>
+                    <div>
+                      <Button
+                        variant="contained"
+                        target="_blank"
+                        href="https://icjuk.com/about-claire-jane/"
+                      >
+                        ABOUT CLAIRE JANE
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className={classes.boxSide}>
+              <Fab
+                color="secondary"
+                aria-label="facebook"
+                target="_blank"
+                href="https://www.facebook.com/ICJUK"
+                className={classes.marginRight}
+              >
+                <FacebookIcon />
+              </Fab>
+              <Fab
+                color="secondary"
+                aria-label="instagram"
+                target="_blank"
+                href="https://www.instagram.com/icjuk/"
+                className={classes.marginRight}
+              >
+                <InstagramIcon />
+              </Fab>
+              <Fab
+                color="secondary"
+                aria-label="pinterest"
+                target="_blank"
+                href="https://www.pinterest.com/inspiredbycj/_created/"
+              >
+                <PinterestIcon />
+              </Fab>
             </div>
           </Cube>
         </div>
-        <SpecificationDialog
-          open={openSpecificationDialog}
-          handleClose={handleCloseSpecificationDialog}
-        />
-        <CdcDialog open={openCdcDialog} handleClose={handleCloseCdcDialog} />
-        <VideoDialog
-          open={openVideoDialog}
-          handleClose={handleCloseVideoDialog}
-        />
       </div>
     </div>
   );
