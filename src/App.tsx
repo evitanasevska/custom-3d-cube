@@ -1,14 +1,20 @@
 import * as React from "react";
 import { makeStyles } from "@mui/styles";
-import { Button, Fab } from "@mui/material";
 import Cube from "./cube-component/Cube";
-import CollectionsIcon from "@mui/icons-material/Collections";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import PinterestIcon from "@mui/icons-material/Pinterest";
+import Front from "./cube-sides/Front";
+import Right from "./cube-sides/Right";
+import Back from "./cube-sides/Back";
+import Left from "./cube-sides/Left";
+import Top from "./cube-sides/Top";
+import Bottom from "./cube-sides/Bottom";
 
-const color = "rgba(237, 31, 36, 0.55)";
+const cubeSize = 350;
+const cubeBackground = "rgba(237, 31, 36, 0.55)";
+const cubeBorder = "rgba(237, 31, 36) 0px 0px 0px 3px";
+const imgOverlay = "rgb(242, 232, 223, 0.2)";
+const onHoverImgOverlay =
+  "rgba(212,234,237, 0.16) 0px 1px 4px, rgb(242, 232, 223) 0px 0px 0px 3px;";
+
 const useStyles = makeStyles({
   container: {
     width: "100%",
@@ -34,8 +40,8 @@ const useStyles = makeStyles({
   boxSide: {
     width: "100%",
     height: "100%",
-    backgroundColor: color,
-    boxShadow: "rgba(237, 31, 36) 0px 0px 0px 3px",
+    backgroundColor: cubeBackground,
+    boxShadow: cubeBorder,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -61,10 +67,9 @@ const useStyles = makeStyles({
     justifyContent: "center",
     width: "100%",
     height: "100%",
-    backgroundColor: "rgb(242, 232, 223, 0.2)",
+    backgroundColor: imgOverlay,
     "&:hover": {
-      boxShadow:
-        "rgba(212,234,237, 0.16) 0px 1px 4px, rgb(242, 232, 223) 0px 0px 0px 3px;",
+      boxShadow: onHoverImgOverlay,
     },
   },
   whiteJoeElliottButton: {
@@ -87,130 +92,24 @@ function App() {
       <img className={classes.backgoundImg} src="/background.png" alt="logo" />
       <div className={classes.center}>
         <div className={classes.boxCanvas}>
-          <Cube size={350} index="front">
+          <Cube size={cubeSize} index="front">
             <div className={classes.boxSide}>
-              <div className={classes.imgContainer}>
-                <img src="/front.png" alt="shop by design" />
-                <div className={classes.imgOverlay}>
-                  <div>
-                    <Button
-                      variant="contained"
-                      startIcon={<ShoppingBagIcon />}
-                      target="_blank"
-                      href="https://icjuk.com/design/"
-                    >
-                      SHOP BY DESIGN
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <Front classes={classes} />
             </div>
             <div className={classes.boxSide}>
-              <div className={classes.imgContainer}>
-                <img src="/right.jpg" alt="worn by joe elliott" />
-                <div className={classes.imgOverlay}>
-                  <div>
-                    <Button
-                      variant="outlined"
-                      startIcon={<CollectionsIcon />}
-                      target="_blank"
-                      href="https://icjuk.com/design_categories/worn-by-joe-elliott/"
-                      size="small"
-                      className={classes.whiteJoeElliottButton}
-                    >
-                      WORN BY JOE ELLIOTT
-                    </Button>
-                    <Button
-                      variant="contained"
-                      startIcon={<ShoppingBagIcon />}
-                      target="_blank"
-                      href="https://icjuk.com/joe-elliott-icjuk-designs/"
-                      size="small"
-                      className={classes.redJoeElliottButton}
-                    >
-                      SHOP JOE ELLIOTT DESIGNS
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <Right classes={classes} />
             </div>
             <div className={classes.boxSide}>
-              <div className={classes.imgContainer}>
-                <img src="/back.png" alt="shop on sale" />
-                <div className={classes.imgOverlay}>
-                  <div>
-                    <Button
-                      variant="contained"
-                      startIcon={<ShoppingBagIcon />}
-                      target="_blank"
-                      href="https://icjuk.com/product-category/sale/"
-                    >
-                      ON SALE
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <Back classes={classes} />
             </div>
             <div className={classes.boxSide}>
-              <div className={classes.imgContainer}>
-                <img src="/left.png" alt="shop bracelets" />
-                <div className={classes.imgOverlay}>
-                  <div>
-                    <Button
-                      variant="contained"
-                      startIcon={<ShoppingBagIcon />}
-                      target="_blank"
-                      href="https://www.clairejaneart.com/collections"
-                    >
-                      SHOP BRACELETS
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <Left classes={classes} />
             </div>
             <div className={classes.boxSide}>
-              <div className={classes.imgContainer}>
-                <img src="/top.jpg" alt="shop bracelets" />
-                <div className={classes.imgOverlay}>
-                  <div>
-                    <Button
-                      variant="contained"
-                      target="_blank"
-                      href="https://icjuk.com/about-claire-jane/"
-                    >
-                      ABOUT CLAIRE JANE
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <Top classes={classes} />
             </div>
             <div className={classes.boxSide}>
-              <Fab
-                color="secondary"
-                aria-label="facebook"
-                target="_blank"
-                href="https://www.facebook.com/ICJUK"
-                className={classes.marginRight}
-              >
-                <FacebookIcon />
-              </Fab>
-              <Fab
-                color="secondary"
-                aria-label="instagram"
-                target="_blank"
-                href="https://www.instagram.com/icjuk/"
-                className={classes.marginRight}
-              >
-                <InstagramIcon />
-              </Fab>
-              <Fab
-                color="secondary"
-                aria-label="pinterest"
-                target="_blank"
-                href="https://www.pinterest.com/inspiredbycj/_created/"
-              >
-                <PinterestIcon />
-              </Fab>
+              <Bottom classes={classes} />
             </div>
           </Cube>
         </div>
